@@ -1,0 +1,27 @@
+.card{
+    border: none;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.card-img-top{
+    padding: 10px;
+    background: #f8f9fa;
+}
+
+h5{
+    font-weight: 600;
+}
+
+h6{
+    font-size: 18px;
+}
+
+.btn-danger{
+    border-radius: 20px;
+}

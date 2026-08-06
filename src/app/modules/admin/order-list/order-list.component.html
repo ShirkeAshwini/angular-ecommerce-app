@@ -1,0 +1,130 @@
+<div class="container-fluid mt-4">
+
+    <!-- HEADER -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <h3 class="fw-bold">📦 Order Management</h3>
+
+    </div>
+
+    <p class="text-muted mb-3">
+        Total Orders:
+        <strong>{{orders.length}}</strong>
+    </p>
+
+    <!-- TABLE CARD -->
+    <div class="card shadow-lg border-0 table-card">
+
+        <div class="card-body p-0">
+
+            <div class="table-responsive">
+
+                <table class="table align-middle mb-0 table-hover">
+
+                    <thead class="table-header">
+
+                        <tr>
+
+                            <th>Sr No.</th>
+                            <th>Customer</th>
+                            <th>Total Amount</th>
+                            <th>Status</th>
+                            <th class="text-center">Action</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr *ngFor="let order of orders; let i=index">
+
+                            <td>{{i+1}}</td>
+
+                            <td class="fw-semibold">
+                                {{order.CustomerName}}
+                            </td>
+
+                            <td class="text-success fw-bold">
+                                ₹{{order.TotalAmount}}
+                            </td>
+
+                            <td>
+
+                                <span class="badge bg-warning"
+                                    *ngIf="order.Status=='Pending'">
+                                    Pending
+                                </span>
+
+                                <span class="badge bg-success"
+                                    *ngIf="order.Status=='Confirmed'">
+                                    Confirmed
+                                </span>
+
+                                <span class="badge bg-danger"
+                                    *ngIf="order.Status=='Rejected'">
+                                    Rejected
+                                </span>
+
+                                <span class="badge bg-secondary"
+                                    *ngIf="order.Status=='Not Available'">
+                                    Not Available
+                                </span>
+
+                            </td>
+
+                            <td class="text-center">
+
+                                <button
+                                    class="btn btn-outline-success btn-sm action-btn me-2"
+                                    (click)="changeStatus(order.id,'Confirmed')">
+
+                                    ✔ Confirm
+
+                                </button>
+
+                                <button
+                                    class="btn btn-outline-danger btn-sm action-btn me-2"
+                                    (click)="changeStatus(order.id,'Rejected')">
+
+                                    ✖ Reject
+
+                                </button>
+
+                                <button
+                                    class="btn btn-outline-secondary btn-sm action-btn"
+                                    (click)="changeStatus(order.id,'Not Available')">
+
+                                    Not Available
+
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+                        <tr *ngIf="orders.length==0">
+
+                            <td colspan="5" class="text-center py-5">
+
+                                <h5 class="text-muted">
+
+                                    📭 No Orders Found
+
+                                </h5>
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

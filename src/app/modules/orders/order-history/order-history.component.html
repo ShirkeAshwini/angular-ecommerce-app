@@ -1,0 +1,137 @@
+<div class="container mt-4">
+
+  <h2 class="mb-4 text-center">
+    📦 My Orders
+  </h2>
+
+  <div *ngIf="orders.length > 0; else noOrders">
+
+    <div class="card shadow-sm mb-4"
+         *ngFor="let order of orders">
+
+      <div class="card-header bg-primary text-white">
+
+        <div class="d-flex justify-content-between align-items-center">
+
+          <div>
+            <strong>
+              Order #{{order.Id || order.Id}}
+            </strong>
+          </div>
+
+          <div>
+
+            <span class="badge bg-warning" *ngIf="order.Status === 'Pending'">
+              Pending
+            </span>
+
+            <span class="badge bg-warning" *ngIf="order.Status === 'Confirmed'">
+              Confirmed
+            </span>
+
+            <span class="badge bg-danger" *ngIf="order.Status === 'Rejected'">
+              Rejected
+            </span>
+
+            <span class="badge bg-danger" *ngIf="order.Status === 'Rejected'">
+              Rejected
+            </span>
+
+            <span class="badge bg-secondary" *ngIf="order.Status === 'Not Available'">
+              Not Available
+            </span>
+
+            <span class="badge bg-info" *ngIf="order.Status === 'Shipped'">
+              Shipped
+            </span>
+
+            <span class="badge bg-primary" *ngIf="order.Status === 'Delivered'">
+              Delivered
+            </span>
+          </div>
+
+          <div>
+            {{order.OrderDate | date:'medium'}}
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="card-body">
+
+        <!-- Address -->
+        <div class="mb-3">
+
+          <h6 class="text-muted">
+            Delivery Address
+          </h6>
+
+          <p class="mb-0">
+            📍 {{order.AddressLine}}, {{order.City}}
+          </p>
+
+        </div>
+
+        <hr>
+
+        <!-- Products -->
+        <div *ngIf="order.OrderItems?.length">
+
+         <div class="product-row" *ngFor="let item of order.OrderItems">
+
+          <img [src]="getImageUrl(item.ImageUrl)" class="product-img">
+          <div class="product-details">
+            <h6>{{item.ProductName}}</h6>
+
+            <small class="text-muted">
+              Quantity: {{item.Quantity}}
+            </small>
+
+          </div>
+          <div class="product-price">
+            ${{item.Price}}
+
+          </div>
+          
+
+         </div>
+
+        </div>
+
+        <!-- TOTAL -->
+        <div class="mt-3 d-flex justify-content-between align-items-center">
+          <h5 class="text-success mb-0">
+            Total Amount : ${{order.TotalAmount}}
+          </h5>
+
+          <button class="btn btn-outline-primary btn-sm" (click)="reorder(order)">🔄 Reorder</button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="text-center mt-4">
+    <button class="btn btn-primary px-4" routerLink="/products">🛍 Continue Shopping</button>
+
+  </div>
+
+  <ng-template #noOrders>
+
+    <div class="alert alert-warning text-center">
+
+      <h5>No Orders Found</h5>
+
+      <p>
+        You haven't placed any orders yet.
+      </p>
+
+    </div>
+
+  </ng-template>
+
+</div>

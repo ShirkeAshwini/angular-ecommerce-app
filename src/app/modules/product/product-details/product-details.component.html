@@ -1,0 +1,135 @@
+<div class="container py-5" *ngIf="product">
+
+  <div class="card shadow-lg border-0">
+
+    <div class="row g-0">
+
+      <!-- Product Image -->
+      <div class="col-lg-5 text-center p-4">
+
+        <img
+          [src]="getImageUrl(product.ImageUrl)"
+          alt="{{product.Name}}"
+          class="img-fluid detail-img">
+
+      </div>
+
+      <!-- Product Details -->
+      <div class="col-lg-7">
+
+        <div class="card-body p-4">
+
+          <!-- Category -->
+          <span class="badge bg-dark mb-3 px-3 py-2">
+            {{product.Category}}
+          </span>
+
+          <!-- Product Name -->
+          <h2 class="fw-bold mb-3">
+            {{product.Name}}
+          </h2>
+
+          <!-- Rating -->
+          <div class="mb-3">
+
+            <ng-container *ngFor="let star of [1,2,3,4,5]">
+
+              <i class="fa"
+                 [ngClass]="star <= (product.Rating || 0)
+                  ? 'fa-star text-warning'
+                  : 'fa-star-o text-warning'">
+              </i>
+
+            </ng-container>
+
+            <span class="ms-2 text-muted">
+              {{product.Rating || 0}} / 5
+            </span>
+
+          </div>
+
+          <!-- Price -->
+          <h3 class="text-success fw-bold mb-3">
+
+            ₹ {{product.Price}}
+
+          </h3>
+
+          <!-- Stock -->
+          <p class="mb-3">
+
+            <strong>Stock :</strong>
+
+            <span
+              [class.text-success]="(product.Stock || 0) > 0"
+              [class.text-danger]="(product.Stock || 0) <= 0">
+
+              {{ (product.Stock || 0) > 0 ? 'Available' : 'Out of Stock' }}
+
+            </span>
+
+          </p>
+
+          <hr>
+
+          <!-- Description -->
+          <h5>Description</h5>
+
+          <p class="text-muted">
+
+            {{product.Description}}
+
+          </p>
+
+          <hr>
+
+          <!-- Action Buttons -->
+          <div class="d-flex gap-3 mt-4">
+
+            <button
+              class="btn btn-success"
+              (click)="addToCart(product)">
+
+              🛒 Add To Cart
+
+            </button>
+
+            <button
+              class="btn btn-outline-danger">
+
+              ❤️ Wishlist
+
+            </button>
+
+            <button
+              class="btn btn-dark"
+              routerLink="/products">
+
+              ← Back
+
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- Loading -->
+<div class="container text-center py-5" *ngIf="!product">
+
+  <div class="spinner-border text-dark"></div>
+
+  <h5 class="mt-3">
+
+    Loading Product...
+
+  </h5>
+
+</div>

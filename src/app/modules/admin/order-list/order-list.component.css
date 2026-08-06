@@ -1,0 +1,83 @@
+/* Page Background */
+body {
+    background: #f8f9fa;
+}
+
+/* Card */
+.table-card {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+/* Table Header */
+.table-header {
+    background: #ffffff;
+}
+
+.table-header th {
+    background: #ffffff !important;
+    color: #212529;      /* Black */
+    font-weight: 700;
+    text-align: center;
+    padding: 15px;
+    border-bottom: 2px solid #dee2e6;
+    font-size: 15px;
+}
+
+/* Table Body */
+.table td {
+    vertical-align: middle;
+    text-align: center;
+    padding: 14px;
+}
+
+/* Row Hover */
+.table tbody tr:hover {
+    background-color: #f5f5f5;
+    transition: 0.3s;
+}
+
+/* Customer Name */
+.customer-name,
+.fw-semibold {
+    font-weight: 600;
+    color: #212529;
+}
+
+/* Price */
+.price {
+    color: #198754;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+/* Status Badges */
+.badge {
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* Buttons */
+.action-btn {
+    min-width: 110px;
+    border-radius: 25px;
+    transition: 0.3s ease;
+}
+
+.action-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Page Heading */
+h3 {
+    color: #212529;      /* Black */
+    font-weight: 700;
+}
+
+/* Total Orders Text */
+.text-muted strong {
+    color: #212529;
+}

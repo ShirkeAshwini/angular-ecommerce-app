@@ -1,0 +1,177 @@
+<div class="container-fluid add-product-wrapper py-4">
+
+  <div class="row g-4">
+
+    <!-- LEFT SIDE: FORM -->
+    <div class="col-lg-7">
+
+      <div class="card glass-card shadow-lg border-0">
+
+        <!-- HEADER -->
+        <!-- <div class="card-header gradient-header text-white">
+          <h4 class="mb-0">➕ Add New Product</h4>
+          <small>Fill details to list a new product</small>
+        </div> -->
+
+        <div class="page-header mb-4">
+          <h3 class="fw-bold">
+            📦 Add Product
+          </h3>
+
+          <p class="text-muted mb-0">
+            Fill product details and upload as image to add a new product.
+          </p>
+
+        </div>
+
+        <div class="card-body p-4">
+
+          <form [formGroup]="productForm" (ngSubmit)="submitProduct()">
+
+            <!-- NAME -->
+            <div class="mb-3">
+              <label>Product Name</label>
+              <input class="form-control form-control-lg"
+                     placeholder="Enter product name"
+                     formControlName="name">
+
+              <small class="text-danger"
+                     *ngIf="productForm.get('name')?.invalid && productForm.get('name')?.touched">
+                Name is required
+              </small>
+            </div>
+
+            <!-- PRICE -->
+            <div class="mb-3">
+              <label>Price</label>
+              <input type="number"
+                     min="1"
+                     class="form-control form-control-lg"
+                     placeholder="₹ Enter price"
+                     formControlName="price">
+
+              <small class="text-danger"
+                     *ngIf="productForm.get('price')?.invalid && productForm.get('price')?.touched">
+                Enter valid price
+              </small>
+            </div>
+
+            <!-- CATEGORY -->
+            <div class="mb-3">
+              <label>Category</label>
+              <input class="form-control form-control-lg"
+                     placeholder="e.g. Electronics, Fashion"
+                     formControlName="category">
+            </div>
+
+            <!-- DESCRIPTION -->
+            <div class="mb-3">
+              <label>Description</label>
+              <textarea class="form-control"
+                        rows="3"
+                        placeholder="Describe your product..."
+                        formControlName="description"></textarea>
+            </div>
+
+            <!-- STOCK -->
+            <div class="mb-3">
+              <label>Stock</label>
+              <input type="number"
+                     min="1"
+                     class="form-control"
+                     formControlName="stock">
+            </div>
+
+            <!-- IMAGE -->
+            <div class="mb-3">
+              <label>Product Image</label>
+              <input 
+                   #fileInput
+                    type="file"
+                     class="form-control"
+                     (change)="onFileSelected($event)">
+            </div>
+
+            <!-- BUTTON -->
+            <button class="btn btn-primary w-100 btn-lg submit-btn"
+                    type="submit"
+                    [disabled]="productForm.invalid || isLoading">
+
+              <span *ngIf="!isLoading">🚀 Publish Product</span>
+              <span *ngIf="isLoading">⏳ Uploading...</span>
+
+            </button>
+
+          </form>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT SIDE: LIVE PREVIEW -->
+    <div class="col-lg-5">
+
+      <div class="card preview-card shadow-lg border-0 sticky-top">
+
+        <!-- <div class="card-header bg-dark text-white">
+          <h5 class="mb-0">📦 Live Preview</h5>
+        </div> -->
+
+         <div class="page-header mb-4">
+          <h3 class="fw-bold">
+            📦 Live Preview
+          </h3>
+
+         
+        </div>
+
+        <div class="card-body text-center">
+
+          <!-- IMAGE -->
+          <div class="image-wrapper">
+
+            <img *ngIf="imagePreview"
+                 [src]="imagePreview"
+                 class="preview-img">
+
+            <div *ngIf="!imagePreview" class="placeholder-img">
+              🖼️ No Image Selected
+            </div>
+
+          </div>
+
+          <!-- NAME -->
+          <h3 class="product-title">
+            {{ productForm.value.name || 'Product Name' }}
+          </h3>
+
+          <!-- PRICE -->
+          <h4 class="price">
+            ₹ {{ productForm.value.price || 0 }}
+          </h4>
+
+          <!-- CATEGORY -->
+          <span class="category-badge">
+            {{ productForm.value.category || 'Category' }}
+          </span>
+
+          <!-- DESCRIPTION -->
+          <p class="description">
+            {{ productForm.value.description || 'Product preview will appear here...' }}
+          </p>
+
+          <!-- LIVE STOCK INDICATOR -->
+          <div class="stock"
+               [class.low]="productForm.value.stock < 5">
+            Stock: {{ productForm.value.stock || 0 }}
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

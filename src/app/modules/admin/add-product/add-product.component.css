@@ -1,0 +1,150 @@
+/* Page Background */
+.add-product-wrapper {
+    background: #f8f9fa;
+    min-height: 100vh;
+}
+
+/* Cards */
+.glass-card,
+.preview-card {
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Header */
+.gradient-header {
+    background: #ffffff !important;
+    color: #212529 !important;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.gradient-header h4,
+.gradient-header small {
+    color: #212529 !important;
+}
+
+/* Live Preview Header */
+.preview-card .card-header {
+    background: #ffffff !important;
+    color: #212529 !important;
+    border-bottom: 1px solid #dee2e6;
+}
+
+/* Labels */
+label {
+    font-weight: 600;
+    color: #212529;
+}
+
+/* Inputs */
+.form-control {
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+}
+
+.form-control:focus {
+    border-color: #212529;
+    box-shadow: 0 0 0 0.15rem rgba(33, 37, 41, 0.15);
+}
+
+/* Submit Button */
+.submit-btn {
+    background: #212529;
+    border: none;
+    color: #ffffff;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.submit-btn:hover {
+    background: #000000;
+}
+
+.submit-btn:disabled {
+    background: #6c757d;
+    cursor: not-allowed;
+}
+
+/* Preview Image */
+.image-wrapper {
+    margin-bottom: 20px;
+}
+
+.preview-img {
+    width: 220px;
+    height: 220px;
+    object-fit: contain;
+    border-radius: 10px;
+    border: 1px solid #dee2e6;
+}
+
+.placeholder-img {
+    width: 220px;
+    height: 220px;
+    border: 2px dashed #ced4da;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #6c757d;
+    margin: auto;
+}
+
+/* Product Preview */
+.product-title {
+    font-weight: 700;
+    color: #212529;
+}
+
+.price {
+    color: #198754;
+    font-weight: bold;
+}
+
+/* Category Badge */
+.category-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    background: #f1f3f5;
+    color: #212529;
+    border-radius: 20px;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+/* Description */
+.description {
+    color: #6c757d;
+    min-height: 60px;
+}
+
+/* Stock */
+.stock {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #198754;
+}
+
+.stock.low {
+    color: #dc3545;
+}
+
+.page-header {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #e9ecef;
+}
+
+.page-header h3 {
+    color: #212529;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.page-header p {
+    color: #6c757d;
+    font-size: 14px;
+}

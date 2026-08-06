@@ -1,0 +1,91 @@
+<div class="dashboard-wrapper">
+
+ 
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- TOP BAR -->
+    <div class="topbar">
+
+      <div class="left">
+        <h3>📊 Admin Dashboard</h3>
+        <p>Welcome back 👋 Manage your store efficiently</p>
+      </div>
+
+      <div class="right">
+        <input type="text"
+               placeholder="Search products, orders..."
+               [(ngModel)]="searchText"
+               (input)="onSearch()" />
+
+        <button class="refresh-btn" (click)="refreshData()">
+          🔄 Refresh
+        </button>
+
+        <!-- <div class="profile">
+          <img src="https://i.pravatar.cc/40" />
+        </div> -->
+      </div>
+
+    </div>
+
+    <!-- STATS CARDS -->
+    <div class="stats">
+
+     <div class="card stat"
+     *ngFor="let card of stats"
+     (click)="selectCard(card)"
+     [class.active]="selectedCard === card">
+
+     <h6>{{card.title}}</h6>
+     <h2>{{card.value}}</h2>
+   
+     <span class="trend"
+           [class.up]="card.trend > 0"
+           [class.down]="card.trend < 0">
+       {{card.trend > 0 ? '▲' : '▼'}} {{card.trend}}%
+     </span>
+   
+    </div>
+
+    </div>
+
+    <!-- CHARTS -->
+    <div class="charts">
+
+      <div class="chart-card hover-card" title="Click to view analytics details">
+
+        <h5>📦 Products by Category</h5>
+
+        <div class="chart-container">
+        <canvas baseChart
+        [type]="'pie'"
+        [data]="pieChartData"
+        (chartClick)="chartClicked($event)"
+        [options]="chartOptions">
+       </canvas>
+       </div>
+
+
+      </div>
+
+      <div class="chart-card hover-card">
+
+        <h5>💰 Price Comparison</h5>
+
+        <div class="chart-container">
+        <canvas baseChart
+                [type]="'bar'"
+                [data]="barChartData"
+                [options]="chartOptions">
+        </canvas>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

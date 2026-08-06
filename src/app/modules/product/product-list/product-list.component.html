@@ -1,0 +1,159 @@
+<div class="container mt-4">
+
+  <h2 class="text-center mb-4">
+    🛒 Product List
+  </h2>
+
+  <div class="row mb-4">
+
+  <!-- Search -->
+  <div class="col-md-5 mb-2">
+
+    <input type="text"
+           class="form-control search-box"
+           placeholder="Search products..."
+           [(ngModel)]="searchText"
+           (input)="filterProducts()">
+
+  </div>
+
+  <!-- Category Filter -->
+  <div class="col-md-4 mb-2">
+
+    <select class="form-select"
+            [(ngModel)]="selectedCategory"
+            (change)="filterProducts()">
+
+      <option value="">
+        All Categories
+      </option>
+
+      <option *ngFor="let category of categories"
+              [value]="category">
+
+        {{category}}
+
+      </option>
+
+    </select>
+
+  </div>
+
+  <!-- Sorting -->
+  <div class="col-md-3">
+
+    <select class="form-select"
+            [(ngModel)]="sortOption"
+            (change)="filterProducts()">
+  
+      <option value="">
+        Sort By
+      </option>
+  
+      <option value="priceLow">
+        Price: Low to High
+      </option>
+  
+      <option value="priceHigh">
+        Price: High to Low
+      </option>
+  
+      <option value="name">
+        Name: A to Z
+      </option>
+  
+    </select>
+
+   </div>
+
+</div>
+
+
+  <div class="row">
+
+    <div class="col-lg-4 col-md-6 mb-4"
+         *ngFor="let product of filteredProducts">
+
+      <div class="card product-card h-100 shadow-sm">
+
+        <!-- Product Image -->
+        <div class="product-image-box">
+          <img [src]="getImageUrl(product.ImageUrl)" class="product-img">
+        </div>
+
+        <div class="card-body d-flex flex-column">
+
+          <!-- Category -->
+          <span class="badge bg-secondary mb-2">
+            {{product.Category}}
+          </span>
+
+          <!-- Product Name -->
+          <h5 class="product-name">
+             {{product.Name}}
+          </h5>
+
+         <div class="rating-section">
+
+          <span class="stars">
+        
+            <ng-container *ngFor="let star of [1,2,3,4,5]">
+        
+              <i class="fa"
+                 [ngClass]="star <= (product.Rating || 0)
+                 ? 'fa-star'
+                 : 'fa-star-o'">
+              </i>
+        
+            </ng-container>
+        
+          </span>
+        
+          <span class="rating-value">
+            {{product.Rating}}
+          </span>
+
+         </div>
+
+          <!-- Description -->
+          <p class="card-text text-muted">
+            {{product.Description}}
+          </p>
+
+          <!-- Price -->
+          <h4 class="text-primary mt-auto">
+            Rs.{{product.Price}}
+          </h4>
+
+          
+         <!-- Buttons -->
+        <div class="d-flex gap-2 mt-3">
+
+          <button class="btn btn-outline-primary btn-sm flex-fill"
+                  [routerLink]="['/products', product.Id]">
+            Details
+          </button>
+        
+          <button class="btn btn-success btn-sm flex-fill"
+                  (click)="addToCart(product)">
+            Cart
+          </button>
+        
+          <button
+            class="btn"
+            [ngClass]="isWishlisted(product.Id) ? 'btn-danger' : 'btn-outline-danger'"
+            (click)="toggleWishlist(product)">
+            ❤
+          </button>
+
+         </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
