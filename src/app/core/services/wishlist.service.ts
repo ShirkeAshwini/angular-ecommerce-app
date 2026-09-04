@@ -8,7 +8,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class WishlistService {
 
   // private apiUrl = 'https://localhost:44387/api/wishlist';
-     private apiUrl = 'http://shirkeash-001-site1.ltempurl.com/api/wishlist';
+     private apiUrl = 'https://shirkeash-001-site1.ltempurl.com/api/wishlist';
 
 
   private wishlistCountSubject = new BehaviorSubject<number>(0);

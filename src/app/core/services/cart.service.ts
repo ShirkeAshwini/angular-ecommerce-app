@@ -9,7 +9,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class CartService {
 
   // private apiUrl = 'https://localhost:44387/api/cart';
-    private apiUrl = 'http://shirkeash-001-site1.ltempurl.com/api/auth';
+    private apiUrl = 'https://shirkeash-001-site1.ltempurl.com/api/auth';
 
   constructor(private http: HttpClient) {}
 
