@@ -133,7 +133,7 @@ increase(item: any) {
 
   return imagePath.startsWith('http')
     ? imagePath
-    : `https://localhost:44387${imagePath}`;
+    : `http://shirkeash-001-site1.ltempurl.com${imagePath}`;
 }
 
 }

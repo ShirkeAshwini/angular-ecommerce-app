@@ -45,7 +45,7 @@ export class WishlistListComponent implements OnInit {
   getImageUrl(path: string): string {
     if (!path) return 'https://via.placeholder.com/150?text=No+Image';
 
-    return `https://localhost:44387${path}`;
+    return `http://shirkeash-001-site1.ltempurl.com${path}`;
   }
 
   removeFromWishlist(id: number) {

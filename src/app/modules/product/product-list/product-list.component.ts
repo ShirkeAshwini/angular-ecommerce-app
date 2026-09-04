@@ -209,7 +209,7 @@ addToCart(product: Product) {
 getImageUrl(path: string): string {
   if (!path) return '';
 
-  return `https://localhost:44387${path}`;
+  return `http://shirkeash-001-site1.ltempurl.com${path}`;
 }
   
 

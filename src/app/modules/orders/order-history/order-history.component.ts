@@ -39,7 +39,7 @@ export class OrderHistoryComponent implements OnInit {
     if(!imagePath){
       return 'assets/no-image.png';
     }
-    return`https://localhost:44387${imagePath}`;
+    return`http://shirkeash-001-site1.ltempurl.com${imagePath}`;
   }
 
   loadOrders(userId: number){

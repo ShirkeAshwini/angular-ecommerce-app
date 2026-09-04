@@ -43,7 +43,7 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   getImageUrl(image: string){
-    return 'https://localhost:44387/' + image;
+    return 'http://shirkeash-001-site1.ltempurl.com/' + image;
   }
 
   
