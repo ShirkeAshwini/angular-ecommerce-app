@@ -7,7 +7,9 @@ import { Observable } from 'rxjs';
 })
 export class OrderService {
 
-  baseUrl = 'https://localhost:44387/api/orders';
+  // baseUrl = 'https://localhost:44387/api/orders';
+   baseUrl = 'https://your-api-domain.com/api/orders';
+
 
   constructor(private http:HttpClient) { }
 

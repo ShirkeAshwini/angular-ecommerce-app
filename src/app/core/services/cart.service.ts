@@ -8,7 +8,9 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class CartService {
 
-  private apiUrl = 'https://localhost:44387/api/cart';
+  // private apiUrl = 'https://localhost:44387/api/cart';
+   baseUrl = 'https://your-api-domain.com/api/cart';
+
 
   constructor(private http: HttpClient) {}
 
@@ -37,7 +39,7 @@ private getUser(): any {
     return new Observable(obs => obs.next([]));
   }
 
-  return this.http.get<any[]>(`${this.apiUrl}/get-cart/${userId}`);
+  return this.http.get<any[]>(`${this.baseUrl}/get-cart/${userId}`);
 }
 
 

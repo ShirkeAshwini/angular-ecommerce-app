@@ -83,6 +83,7 @@
   font-weight: 500;
 }
 
+/* Added the style for the button  */
 .action-btn:hover {
   transform: translateY(-2px);
 }
@@ -148,6 +149,3 @@
   transition: 0.3s;
 }
 
-.search-box:focus {
-  transform: scale(1.02);
-}

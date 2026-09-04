@@ -7,7 +7,9 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class WishlistService {
 
-  private apiUrl = 'https://localhost:44387/api/wishlist';
+  // private apiUrl = 'https://localhost:44387/api/wishlist';
+   baseUrl = 'https://your-api-domain.com/api/wishlist';
+
 
   private wishlistCountSubject = new BehaviorSubject<number>(0);
   wishlistCount$ = this.wishlistCountSubject.asObservable();
@@ -21,13 +23,13 @@ export class WishlistService {
   // GET wishlist by user
   getWishlist(userId: number): Observable<any[]> {
     return this.http.get<any[]>(
-      `${this.apiUrl}/user/${userId}`
+      `${this.baseUrl}/user/${userId}`
     );
   }
 
   // ADD wishlist
   addToWishlist(data: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/add`, data);
+    return this.http.post(`${this.baseUrl}/add`, data);
   }
 
   // REMOVE wishlist
