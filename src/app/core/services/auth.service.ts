@@ -8,8 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class AuthService {
 
   // private baseUrl = 'https://localhost:44387/api/auth';
-   baseUrl = 'https://your-api-domain.com/api/auth';
-
+   private apiUrl = 'http://shirkeash-001-site1.ltempurl.com/api/auth';
 
   constructor(private http: HttpClient) {}
 
@@ -40,11 +39,11 @@ export class AuthService {
   // API CALLS
   // -------------------------
   register(data: any) {
-    return this.http.post(`${this.baseUrl}/register`, data);
+    return this.http.post(`${this.apiUrl}/register`, data);
   }
 
   login(data: any) {
-    return this.http.post(`${this.baseUrl}/login`, data);
+    return this.http.post(`${this.apiUrl}/login`, data);
   }
 
   // -------------------------

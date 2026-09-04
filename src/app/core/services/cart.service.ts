@@ -9,8 +9,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class CartService {
 
   // private apiUrl = 'https://localhost:44387/api/cart';
-   baseUrl = 'https://your-api-domain.com/api/cart';
-
+    private apiUrl = 'http://shirkeash-001-site1.ltempurl.com/api/auth';
 
   constructor(private http: HttpClient) {}
 
@@ -26,7 +25,7 @@ private getUser(): any {
 
  addToCart(cartItem: any) {
   return this.http.post(
-    'https://localhost:44387/api/cart/add-to-cart',
+    'http://shirkeash-001-site1.ltempurl.com/api/cart/add-to-cart',
     cartItem
   );
 }
@@ -39,27 +38,27 @@ private getUser(): any {
     return new Observable(obs => obs.next([]));
   }
 
-  return this.http.get<any[]>(`${this.baseUrl}/get-cart/${userId}`);
+  return this.http.get<any[]>(`${this.apiUrl}/get-cart/${userId}`);
 }
 
 
   updateCart(cartItem: any) {
   return this.http.put(
-  'https://localhost:44387/api/cart/update',
+  'http://shirkeash-001-site1.ltempurl.com/api/cart/update',
   cartItem
 );
 }
 
   updateQuantity(cartId: number, quantity: number) {
   return this.http.put(
-    `https://localhost:44387/api/cart/update`,
+    `http://shirkeash-001-site1.ltempurl.com/api/cart/update`,
     { cartId, quantity }
   );
 }
 
 increaseQty(item: any) {
   return this.http.put(
-    'https://localhost:44387/api/cart/increase',
+    'http://shirkeash-001-site1.ltempurl.com/api/cart/increase',
     {
       userId: item.userId,
       productId: item.productId
@@ -69,7 +68,7 @@ increaseQty(item: any) {
 
 decreaseQty(item: any) {
   return this.http.put(
-    'https://localhost:44387/api/cart/decrease',
+    'http://shirkeash-001-site1.ltempurl.com/api/cart/decrease',
     {
       userId: item.userId,
       productId: item.productId
@@ -79,13 +78,13 @@ decreaseQty(item: any) {
 
 removeItem(id: number) {
   return this.http.delete(
-    `https://localhost:44387/api/cart/remove/${id}`
+    `http://shirkeash-001-site1.ltempurl.com/api/cart/remove/${id}`
   );
 }
 
 getCart(userId: number) {
   return this.http.get<any[]>(
-    `https://localhost:44387/api/cart/get-cart/${userId}`
+    `http://shirkeash-001-site1.ltempurl.com/api/cart/get-cart/${userId}`
   );
 }
 

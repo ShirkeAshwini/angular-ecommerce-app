@@ -8,22 +8,22 @@ import { Observable } from 'rxjs';
 export class OrderService {
 
   // baseUrl = 'https://localhost:44387/api/orders';
-   baseUrl = 'https://your-api-domain.com/api/orders';
+    private apiUrl = 'http://shirkeash-001-site1.ltempurl.com/api/orders';
 
 
   constructor(private http:HttpClient) { }
 
   placeOrder(orderData: any): Observable<any>{
-    return this.http.post(`${this.baseUrl}/place`,orderData);
+    return this.http.post(`${this.apiUrl}/place`,orderData);
   }
 
    getOrdersByUser(userId: number) : Observable<any> {
-    return this.http.get(`${this.baseUrl}/user/${userId}`);
+    return this.http.get(`${this.apiUrl}/user/${userId}`);
   }
 
   updateStatus(orderId: number, status:string){
     return this.http.put(
-      `https://localhost:44387/api/orders/update-status/${orderId}`,
+      `http://shirkeash-001-site1.ltempurl.com/api/orders/update-status/${orderId}`,
       JSON.stringify(status),
       {
         headers: {
@@ -35,7 +35,7 @@ export class OrderService {
 
   getAllOrders(){
     return this.http.get<any[]>(
-      `https://localhost:44387/api/orders/all`
+      `http://shirkeash-001-site1.ltempurl.com/api/orders/all`
     );
   }
 }

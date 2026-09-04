@@ -8,7 +8,8 @@ import { HttpClient } from '@angular/common/http';
 export class ProductService {
 
   // baseUrl = 'https://localhost:44387/api/products';
-  baseUrl = 'https://your-api-domain.com/api/products';
+   private apiUrl = 'http://shirkeash-001-site1.ltempurl.com/api/products';
+
 
   constructor(private http: HttpClient) {}
 
@@ -17,23 +18,23 @@ export class ProductService {
   // }
 
   addProduct(data: any) {
-    return this.http.post(`${this.baseUrl}/add`, data);
+    return this.http.post(`${this.apiUrl}/add`, data);
   }
 
   deleteProduct(id: number) {
-    return this.http.delete(`${this.baseUrl}/delete/${id}`);
+    return this.http.delete(`${this.apiUrl}/delete/${id}`);
   }
 
   getProductById(id: number) {
-    return this.http.get(`${this.baseUrl}/${id}`);
+    return this.http.get(`${this.apiUrl}/${id}`);
   }
   
   updateProduct(id: number, data: FormData) {
-  return this.http.put(`${this.baseUrl}/update/${id}`, data);
+  return this.http.put(`${this.apiUrl}/update/${id}`, data);
 }
 
 getProducts() {
-  return this.http.get<Product[]>(`${this.baseUrl}/all`);
+  return this.http.get<Product[]>(`${this.apiUrl}/all`);
 }
 
 }
