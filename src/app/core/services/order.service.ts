@@ -23,7 +23,7 @@ export class OrderService {
 
   updateStatus(orderId: number, status:string){
     return this.http.put(
-      `http://shirkeash-001-site1.ltempurl.com/api/orders/update-status/${orderId}`,
+      `https://shirkeash-001-site1.ltempurl.com/api/orders/update-status/${orderId}`,
       JSON.stringify(status),
       {
         headers: {
@@ -35,7 +35,7 @@ export class OrderService {
 
   getAllOrders(){
     return this.http.get<any[]>(
-      `http://shirkeash-001-site1.ltempurl.com/api/orders/all`
+      `https://shirkeash-001-site1.ltempurl.com/api/orders/all`
     );
   }
 }

@@ -174,7 +174,7 @@ getImageUrl(imagePath:string): string{
     return 'assets/no-image.png';
   }
 
-  return `http://shirkeash-001-site1.ltempurl.com${imagePath}`;
+  return `https://shirkeash-001-site1.ltempurl.com${imagePath}`;
 }
 
 } 

@@ -14,6 +14,6 @@ export class DashboardService {
   constructor(private https: HttpClient) { }
 
   getDashboardStats() {
-  return this.https.get<any>('http://shirkeash-001-site1.ltempurl.com/api/dashboard/stats');
+  return this.https.get<any>('https://shirkeash-001-site1.ltempurl.com/api/dashboard/stats');
 }
 }

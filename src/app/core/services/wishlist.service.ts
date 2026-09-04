@@ -34,6 +34,6 @@ export class WishlistService {
 
   // REMOVE wishlist
   removeFromWishlist(id: number): Observable<any> {
-    return this.http.delete(`http://shirkeash-001-site1.ltempurl.com/api/wishlist/remove/${id}`);
+    return this.http.delete(`https://shirkeash-001-site1.ltempurl.com/api/wishlist/remove/${id}`);
   }
 }

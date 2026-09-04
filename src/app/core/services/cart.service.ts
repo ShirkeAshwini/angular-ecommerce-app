@@ -25,7 +25,7 @@ private getUser(): any {
 
  addToCart(cartItem: any) {
   return this.http.post(
-    'http://shirkeash-001-site1.ltempurl.com/api/cart/add-to-cart',
+    'https://shirkeash-001-site1.ltempurl.com/api/cart/add-to-cart',
     cartItem
   );
 }
@@ -44,21 +44,21 @@ private getUser(): any {
 
   updateCart(cartItem: any) {
   return this.http.put(
-  'http://shirkeash-001-site1.ltempurl.com/api/cart/update',
+  'https://shirkeash-001-site1.ltempurl.com/api/cart/update',
   cartItem
 );
 }
 
   updateQuantity(cartId: number, quantity: number) {
   return this.http.put(
-    `http://shirkeash-001-site1.ltempurl.com/api/cart/update`,
+    `https://shirkeash-001-site1.ltempurl.com/api/cart/update`,
     { cartId, quantity }
   );
 }
 
 increaseQty(item: any) {
   return this.http.put(
-    'http://shirkeash-001-site1.ltempurl.com/api/cart/increase',
+    'https://shirkeash-001-site1.ltempurl.com/api/cart/increase',
     {
       userId: item.userId,
       productId: item.productId
@@ -68,7 +68,7 @@ increaseQty(item: any) {
 
 decreaseQty(item: any) {
   return this.http.put(
-    'http://shirkeash-001-site1.ltempurl.com/api/cart/decrease',
+    'https://shirkeash-001-site1.ltempurl.com/api/cart/decrease',
     {
       userId: item.userId,
       productId: item.productId
@@ -78,13 +78,13 @@ decreaseQty(item: any) {
 
 removeItem(id: number) {
   return this.http.delete(
-    `http://shirkeash-001-site1.ltempurl.com/api/cart/remove/${id}`
+    `https://shirkeash-001-site1.ltempurl.com/api/cart/remove/${id}`
   );
 }
 
 getCart(userId: number) {
   return this.http.get<any[]>(
-    `http://shirkeash-001-site1.ltempurl.com/api/cart/get-cart/${userId}`
+    `https://shirkeash-001-site1.ltempurl.com/api/cart/get-cart/${userId}`
   );
 }
 

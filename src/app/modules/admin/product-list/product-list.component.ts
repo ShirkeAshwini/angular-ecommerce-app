@@ -99,7 +99,7 @@ export class ProductListComponent implements OnInit {
 
 getImageUrl(path: string): string {
   if (!path) return 'assets/no-image.png';
-  return `http://shirkeash-001-site1.ltempurl.com${path}`;
+  return `https://shirkeash-001-site1.ltempurl.com${path}`;
 }
 
 setDefaultImage(event: any) {
